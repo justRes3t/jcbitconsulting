@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const services = [
+  {
+    id: 'assessments',
+    icon: '&#128737;',
+    title: 'Security Assessments',
+    summary: 'Find and fix vulnerabilities before they become breaches.',
+    details: [
+      'External and internal penetration testing',
+      'Web application security assessments',
+      'Network vulnerability scanning and analysis',
+      'Cloud infrastructure security reviews (AWS, Azure, GCP)',
+      'Social engineering and phishing simulations',
+      'Detailed remediation reports with prioritized findings',
+    ],
+  },
+  {
+    id: 'compliance',
+    icon: '&#9989;',
+    title: 'Compliance Consulting',
+    summary: 'Achieve and maintain compliance with confidence.',
+    details: [
+      'SOC 2 Type I &amp; Type II readiness and audit support',
+      'ISO 27001 implementation and certification guidance',
+      'HIPAA security risk assessments and remediation',
+      'PCI-DSS gap analysis and compliance roadmaps',
+      'NIST Cybersecurity Framework alignment',
+      'Policy and procedure development tailored to your organization',
+    ],
+  },
+  {
+    id: 'risk',
+    icon: '&#128200;',
+    title: 'Risk Management',
+    summary: 'Understand, quantify, and reduce your business risk.',
+    details: [
+      'Enterprise risk assessments and heat mapping',
+      'Third-party and vendor risk management programs',
+      'Business impact analysis (BIA) and continuity planning',
+      'Security program maturity assessments',
+      'Risk register development and ongoing management',
+      'Board-level risk reporting and executive briefings',
+    ],
+  },
+  {
+    id: 'incident',
+    icon: '&#128680;',
+    title: 'Incident Response',
+    summary: 'Rapid response when every minute counts.',
+    details: [
+      '24/7 incident response retainer services',
+      'Digital forensic investigation and evidence handling',
+      'Breach containment, eradication, and recovery',
+      'Incident response plan development and tabletop exercises',
+      'Post-incident review and lessons-learned workshops',
+      'Coordination with legal counsel and regulatory bodies',
+    ],
+  },
+];
+---
+
+<BaseLayout title="Services" description="Explore JCBIT Consulting's security and consulting services — from penetration testing to compliance and incident response.">
+
+  <!-- Page header -->
+  <section class="page-header">
+    <div class="container">
+      <p class="page-tag">What We Offer</p>
+      <h1>Our Services</h1>
+      <p class="page-lead">
+        Every engagement is tailored to your organization's size, industry, and risk
+        profile. We don't sell cookie-cutter solutions — we build programs that work.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services list -->
+  <section class="section">
+    <div class="container">
+      {services.map((s, i) => (
+        <div class="service-block" id={s.id}>
+          <div class="service-block-header">
+            <span class="service-block-icon" set:html={s.icon} />
+            <div>
+              <h2>{s.title}</h2>
+              <p class="service-block-summary">{s.summary}</p>
+            </div>
+          </div>
+          <ul class="service-detail-list">
+            {s.details.map(d => <li set:html={d} />)}
+          </ul>
+          {i < services.length - 1 && <hr class="service-divider" />}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark" style="text-align:center;">
+    <div class="container">
+      <h2 class="section-title">Not Sure Where to Start?</h2>
+      <p class="section-subtitle" style="margin-left:auto;margin-right:auto;">
+        We offer a free 30-minute discovery call to understand your environment
+        and recommend the right engagement.
+      </p>
+      <a href="/contact" class="btn btn--primary">Book a Discovery Call</a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-header {
+    background: var(--color-navy);
+    color: var(--color-white);
+    padding: 5rem 0 4rem;
+  }
+  .page-tag {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  .page-header h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+  .page-lead {
+    font-size: 1.1rem;
+    color: var(--color-gray-400);
+    max-width: 600px;
+    line-height: 1.7;
+  }
+
+  /* Service blocks */
+  .service-block { padding: 2.5rem 0; }
+  .service-block-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .service-block-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .service-block h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+  }
+  .service-block-summary {
+    color: var(--color-gray-600);
+    font-size: 1rem;
+  }
+  .service-detail-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    padding-left: 3.25rem;
+  }
+  @media (min-width: 640px) {
+    .service-detail-list { grid-template-columns: repeat(2, 1fr); }
+  }
+  .service-detail-list li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 0.95rem;
+    color: var(--color-gray-600);
+    line-height: 1.5;
+  }
+  .service-detail-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  .service-divider {
+    border: none;
+    border-top: 1px solid var(--color-gray-200);
+    margin-top: 2.5rem;
+  }
+</style>

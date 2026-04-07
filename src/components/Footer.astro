@@ -1,0 +1,107 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo">
+        <span class="logo-mark">JCB</span><span class="logo-accent">IT</span>
+      </span>
+      <p>Protecting what matters most — your data, your reputation, your business.</p>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services#assessments">Security Assessments</a></li>
+          <li><a href="/services#compliance">Compliance Consulting</a></li>
+          <li><a href="/services#risk">Risk Management</a></li>
+          <li><a href="/services#incident">Incident Response</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; {year} JCBIT Consulting. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-navy);
+    color: var(--color-gray-200);
+    padding-top: 4rem;
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--color-navy-mid);
+  }
+
+  @media (min-width: 768px) {
+    .footer-inner {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+
+  .footer-brand p {
+    margin-top: 0.75rem;
+    color: var(--color-gray-400);
+    font-size: 0.9rem;
+    max-width: 320px;
+    line-height: 1.6;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-white);
+  }
+  .logo-accent { color: var(--color-accent); }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .footer-col h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-gray-400);
+    margin-bottom: 1rem;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 0.6rem; }
+  .footer-col a {
+    font-size: 0.9rem;
+    color: var(--color-gray-200);
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--color-accent); }
+
+  .footer-bottom {
+    padding: 1.25rem 0;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-gray-400);
+  }
+</style>

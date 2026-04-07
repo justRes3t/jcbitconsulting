@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact" description="Get in touch with JCBIT Consulting to discuss your security needs.">
+
+  <!-- Page header -->
+  <section class="page-header">
+    <div class="container">
+      <p class="page-tag">Get in Touch</p>
+      <h1>Contact Us</h1>
+      <p class="page-lead">
+        Ready to take the next step? Send us a message and we'll get back to you
+        within one business day.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact form + info -->
+  <section class="section">
+    <div class="container contact-layout">
+
+      <div class="contact-form-wrap">
+        <h2>Send a Message</h2>
+        <!--
+          Action attribute is a placeholder. Point this to a Cloudflare Worker,
+          Formspree, or any form backend when you're ready to go live.
+        -->
+        <form class="contact-form" action="/api/contact" method="POST">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@company.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject" required>
+              <option value="" disabled selected>Select a topic</option>
+              <option value="security-assessment">Security Assessment</option>
+              <option value="compliance">Compliance Consulting</option>
+              <option value="risk-management">Risk Management</option>
+              <option value="incident-response">Incident Response</option>
+              <option value="general">General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us about your project or question..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Send Message</button>
+        </form>
+      </div>
+
+      <aside class="contact-info">
+        <div class="info-card">
+          <h3>Other Ways to Reach Us</h3>
+
+          <div class="info-item">
+            <span class="info-label">Email</span>
+            <a href="mailto:hello@jcbitconsulting.com">hello@jcbitconsulting.com</a>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">Phone</span>
+            <a href="tel:+15551234567">(555) 123-4567</a>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">Location</span>
+            <span>United States (Remote-First)</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3>What to Expect</h3>
+          <ol class="expect-list">
+            <li><strong>Submit your inquiry</strong> — fill out the form or send us an email.</li>
+            <li><strong>Discovery call</strong> — we'll schedule a 30-minute call to learn about your needs.</li>
+            <li><strong>Proposal</strong> — you'll receive a tailored scope of work within 48 hours.</li>
+          </ol>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-header {
+    background: var(--color-navy);
+    color: var(--color-white);
+    padding: 5rem 0 4rem;
+  }
+  .page-tag {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  .page-header h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+  .page-lead {
+    font-size: 1.1rem;
+    color: var(--color-gray-400);
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  /* Layout */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  @media (min-width: 768px) {
+    .contact-layout {
+      grid-template-columns: 1.4fr 1fr;
+      align-items: start;
+    }
+  }
+
+  /* Form */
+  .contact-form-wrap h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  .form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--color-navy);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--color-gray-200);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: var(--font-sans);
+    color: var(--color-navy);
+    background: var(--color-white);
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(0, 191, 166, 0.12);
+  }
+  .form-group textarea { resize: vertical; }
+
+  .btn--full { width: 100%; text-align: center; }
+
+  /* Info sidebar */
+  .info-card {
+    padding: 1.75rem;
+    background: var(--color-gray-100);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+  .info-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: var(--color-navy);
+  }
+  .info-item {
+    margin-bottom: 1rem;
+  }
+  .info-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-gray-400);
+    margin-bottom: 0.2rem;
+  }
+  .info-item a,
+  .info-item span {
+    font-size: 0.95rem;
+    color: var(--color-navy);
+  }
+  .info-item a:hover { color: var(--color-accent); }
+
+  .expect-list {
+    list-style: none;
+    counter-reset: expect;
+  }
+  .expect-list li {
+    counter-increment: expect;
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.9rem;
+    font-size: 0.9rem;
+    color: var(--color-gray-600);
+    line-height: 1.5;
+  }
+  .expect-list li::before {
+    content: counter(expect);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--color-navy);
+    color: var(--color-accent);
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

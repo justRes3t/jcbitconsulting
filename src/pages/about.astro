@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const values = [
+  {
+    title: 'Integrity First',
+    description: 'We operate with full transparency. Our recommendations are always in your best interest — never driven by upsells or vendor partnerships.',
+  },
+  {
+    title: 'Practical Security',
+    description: 'We design security programs that are effective and implementable. The best policy is the one your team will actually follow.',
+  },
+  {
+    title: 'Client Partnership',
+    description: 'We see ourselves as an extension of your team, not an outside auditor. Your success is our success.',
+  },
+  {
+    title: 'Continuous Improvement',
+    description: 'The threat landscape evolves daily. We help you build adaptive programs that grow with your business and the risks you face.',
+  },
+];
+
+const team = [
+  {
+    name: 'Placeholder Name',
+    role: 'Founder & Principal Consultant',
+    bio: 'Over 15 years of experience in cybersecurity, with deep expertise in penetration testing, compliance program design, and security architecture for mid-market and enterprise organizations.',
+  },
+  {
+    name: 'Open Position',
+    role: 'Senior Security Consultant',
+    bio: 'We\'re growing. If you\'re passionate about helping organizations build stronger security programs, reach out to learn about opportunities.',
+  },
+];
+---
+
+<BaseLayout title="About" description="Learn about JCBIT Consulting's mission, values, and the team behind our security consulting services.">
+
+  <!-- Page header -->
+  <section class="page-header">
+    <div class="container">
+      <p class="page-tag">Who We Are</p>
+      <h1>About JCBIT Consulting</h1>
+      <p class="page-lead">
+        Founded on the belief that every organization deserves access to
+        expert-level security guidance — regardless of size or budget.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="section">
+    <div class="container mission-block">
+      <h2 class="section-title">Our Mission</h2>
+      <p class="mission-text">
+        At JCBIT Consulting, we partner with businesses to build security programs
+        that protect critical assets, satisfy regulatory requirements, and create
+        a culture of security awareness from the boardroom to the server room.
+      </p>
+      <p class="mission-text">
+        We founded JCBIT because too many small and mid-sized organizations are
+        underserved by the security industry. Enterprise-grade protection shouldn't
+        require an enterprise-sized budget. Our approach is grounded in real-world
+        experience, clear communication, and measurable outcomes.
+      </p>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section section--light">
+    <div class="container">
+      <h2 class="section-title">Our Values</h2>
+      <p class="section-subtitle">The principles that guide every engagement.</p>
+      <div class="grid grid--2 values-grid">
+        {values.map(v => (
+          <div class="value-card">
+            <h3>{v.title}</h3>
+            <p>{v.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Our Team</h2>
+      <p class="section-subtitle">Meet the people behind JCBIT.</p>
+      <div class="grid grid--2 team-grid">
+        {team.map(t => (
+          <div class="team-card">
+            <div class="team-avatar">{t.name.charAt(0)}</div>
+            <h3>{t.name}</h3>
+            <p class="team-role">{t.role}</p>
+            <p class="team-bio">{t.bio}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark" style="text-align:center;">
+    <div class="container">
+      <h2 class="section-title">Let's Work Together</h2>
+      <p class="section-subtitle" style="margin-left:auto;margin-right:auto;">
+        Have questions about how JCBIT can help secure your organization?
+        We'd love to hear from you.
+      </p>
+      <a href="/contact" class="btn btn--primary">Contact Us</a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-header {
+    background: var(--color-navy);
+    color: var(--color-white);
+    padding: 5rem 0 4rem;
+  }
+  .page-tag {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  .page-header h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+  .page-lead {
+    font-size: 1.1rem;
+    color: var(--color-gray-400);
+    max-width: 600px;
+    line-height: 1.7;
+  }
+
+  /* Mission */
+  .mission-block { max-width: 720px; }
+  .mission-text {
+    font-size: 1.05rem;
+    color: var(--color-gray-600);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Values */
+  .value-card {
+    padding: 2rem;
+    background: var(--color-white);
+    border-radius: 8px;
+    border: 1px solid var(--color-gray-200);
+  }
+  .value-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--color-navy);
+  }
+  .value-card p {
+    font-size: 0.95rem;
+    color: var(--color-gray-600);
+    line-height: 1.6;
+  }
+
+  /* Team */
+  .team-card {
+    padding: 2rem;
+    border: 1px solid var(--color-gray-200);
+    border-radius: 8px;
+    text-align: center;
+  }
+  .team-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--color-navy);
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+  }
+  .team-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .team-role {
+    font-size: 0.85rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  .team-bio {
+    font-size: 0.9rem;
+    color: var(--color-gray-600);
+    line-height: 1.6;
+  }
+</style>
