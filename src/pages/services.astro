@@ -3,6 +3,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const services = [
   {
+    id: 'it-consulting',
+    icon: '&#128187;',
+    title: 'IT Consulting',
+    summary: 'Strategic technology guidance to align your IT with your business goals.',
+    details: [
+      'IT infrastructure assessments and technology roadmapping',
+      'Cloud strategy and migration (M365, Google Workspace, AWS)',
+      'Network architecture design and optimization',
+      'Vendor evaluation, coordination, and contract review',
+      'Backup, disaster recovery, and business continuity planning',
+      'Ongoing advisory retainers for IT decision-making',
+    ],
+  },
+  {
     id: 'assessments',
     icon: '&#128274;',
     title: 'Security Assessments',
@@ -55,7 +69,7 @@ const services = [
 ];
 ---
 
-<BaseLayout title="Services" description="Explore JCBIT Consulting's security and consulting services — from penetration testing to compliance and incident response.">
+<BaseLayout title="Services" description="Explore JCB IT Consulting's security and consulting services.">
 
   <!-- Page header -->
   <section class="page-header">
@@ -70,7 +84,7 @@ const services = [
   </section>
 
   <!-- Services list -->
-  <section class="section">
+  <section class="section services-section">
     <div class="container">
       {services.map((s, i) => (
         <div class="service-block" id={s.id}>
@@ -130,8 +144,12 @@ const services = [
     line-height: 1.7;
   }
 
+  /* Reduce top gap between header and first service */
+  .services-section { padding-top: 1rem; }
+
   /* Service blocks */
   .service-block { padding: 2.5rem 0; }
+  .service-block:first-child { padding-top: 0; }
   .service-block-header {
     display: flex;
     align-items: flex-start;
